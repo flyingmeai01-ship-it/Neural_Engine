@@ -7,5 +7,6 @@
 - for future Neural network multiplication or operation which we will use.
 - Importance it is the most usefull for ground base for whole project.
 
-### Languague Used
-- `C++`
+### Acknowledgements
+- Devloped By `Sachin singh pundir` *Flying*
+- Languague Used `C++`
