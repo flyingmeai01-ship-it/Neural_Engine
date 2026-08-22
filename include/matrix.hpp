@@ -4,8 +4,16 @@
 // Define MATRIX_HPP to prevent multiple file inclusions
 #define MATRIX_HPP
 
-// Function declaretions ( Only the function names and parameters, not the logic )
-int add (int a, int b);
-int multiply (int a, int b);
+#include <vector>
+
+class Matrix {
+private:
+    std::vector<std::vector<int>> matrix;
+
+public:
+    Matrix ( std::vector<std::vector<int>> d_array );
+    void display_matrix();
+};
+
 
 #endif

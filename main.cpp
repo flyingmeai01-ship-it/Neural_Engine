@@ -3,12 +3,8 @@
 
 int main()
 {
-    std::cout << "Enter two numbers for Addtion and Multiplcation";
-    int a, b;
-    std::cin >> a >> b;
+    Matrix mat( {{1, 2}, {3, 4}});
 
-    std::cout << add(a, b) << std::endl;
-    std::cout << multiply(a, b) << std::endl;
-
+    mat.display_matrix();
     return 0;
 }
