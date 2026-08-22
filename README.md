@@ -6,8 +6,8 @@
 
 ## Week 1 & 2
 - `Matrix` Operations
-- for future Neural network multiplication or operation which we will use.
-- Importance it is the most usefull for ground base for whole project.
+- for future Neural network multiplication or operation which we will use in whole project.
+- Importance it is the most useful part for whole project cuz it will be work as ground base for whole project.
 
 ### Acknowledgements
 - Devloped By `Sachin singh pundir` *Flying*
