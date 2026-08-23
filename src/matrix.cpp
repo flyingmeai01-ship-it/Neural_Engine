@@ -4,16 +4,19 @@
 
 
 // Constructor defination
-Matrix::Matrix(std::vector<std::vector<int>> d_array) {
-    matrix = d_array;
-}
+Matrix::Matrix(const std::vector<std::vector<double>>& d_array) 
+   : matrix(d_array)
+   {}
+
+    // int row = d_array.size();
+    // int col = d_array[0].size();
 
 // Function defination
 void Matrix::display_matrix()
 {
-    for (int i = 0; i < 2; i++) {
-        for (int j = 0; j < 2; j++) {
-            std::cout << "[" << matrix[i][j] << "] ";
+    for (const auto& current_row : matrix) {
+        for (double value : current_row) {
+            std::cout << "[" << value << "] ";
         }
         std::cout << "\n";
     }

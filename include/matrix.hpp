@@ -8,10 +8,10 @@
 
 class Matrix {
 private:
-    std::vector<std::vector<int>> matrix;
+    std::vector<std::vector<double>> matrix;
 
 public:
-    Matrix ( std::vector<std::vector<int>> d_array );
+    Matrix ( const std::vector<std::vector<double>>& d_array );
     void display_matrix();
 };
 
