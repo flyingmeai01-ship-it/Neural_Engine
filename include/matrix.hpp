@@ -1,4 +1,3 @@
-#pragma
 // If matrix_hpp is not defined, define it ( start of header )
 #ifndef MATRIX_HPP
 
