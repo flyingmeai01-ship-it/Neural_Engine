@@ -5,6 +5,7 @@
 - This project completion Target time is 6 Weeks.
 
 ## Project Structure
+```
 Neural_Engine/
 ├── include/
 │   └── matrix.hpp
@@ -12,6 +13,7 @@ Neural_Engine/
 │   └── matrix.cpp
 ├── main.cpp
 └── README.md
+```
 
 ## Week 1 & 2
 - `Matrix` Operations
