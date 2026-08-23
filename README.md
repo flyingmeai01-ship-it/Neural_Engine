@@ -4,6 +4,15 @@
 - Like in programming we write `Hello, World` its same for Neural Network
 - This project completion Target time is 6 Weeks.
 
+## Project Structure
+Neural_Engine/
+├── include/
+│   └── matrix.hpp
+├── src/
+│   └── matrix.cpp
+├── main.cpp
+└── README.md
+
 ## Week 1 & 2
 - `Matrix` Operations
 - for future Neural network multiplication or operation which we will use in whole project.
@@ -11,8 +20,8 @@
 
 ### Architecture
 - Major shift Implemented Matrix with `1D vector`
-- for better effecency in run time and space as linear contigious block of memory
-- Build instruction `g++ -std=c++17 -Iinclude src/matric.cpp main.cpp -o main` 
+- for better efficiency in run time and space as linear contiguous block of memory
+- Build instruction `g++ -std=c++17 -Iinclude src/matrix.cpp main.cpp -o main` 
 to `g++ -Wall -Wextra -Werror -std=c++17 src/matrix.cpp main.cpp -Iinclude -o main`
 - Using the assert for bound checks and operator used
 
@@ -22,5 +31,5 @@ to `g++ -Wall -Wextra -Werror -std=c++17 src/matrix.cpp main.cpp -Iinclude -o ma
 
 
 ### Acknowledgements
-- Devloped By `Sachin singh pundir` *Flying*
+- Developed By `Sachin singh pundir` *Flying*
 - Languague Used `C++`
