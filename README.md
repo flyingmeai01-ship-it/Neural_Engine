@@ -14,6 +14,12 @@
 - for better effecency in run time and space as linear contigious block of memory
 - Build instruction `g++ -std=c++17 -Iinclude src/matric.cpp main.cpp -o main` 
 to `g++ -Wall -Wextra -Werror -std=c++17 src/matrix.cpp main.cpp -Iinclude -o main`
+- Using the assert for bound checks and operator used
+
+### Learnings and lessons
+- Practice more on Class and constructor.
+- Learn more about operator overloading.
+
 
 ### Acknowledgements
 - Devloped By `Sachin singh pundir` *Flying*
