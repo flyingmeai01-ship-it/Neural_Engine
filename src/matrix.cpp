@@ -4,7 +4,7 @@
 
 
 // Constructor defination
-Matrix::Matrix(const std::vector<std::vector<double>>& d_array) 
+Matrix::Matrix(const std::vector<double>& d_array) 
    : matrix(d_array)
    {}
 
