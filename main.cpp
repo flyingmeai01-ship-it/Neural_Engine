@@ -3,7 +3,11 @@
 
 int main()
 {
-    Matrix mat( {{1, 2}, {3, 4}});
+    Matrix mat(4, 3);
+
+    mat(0, 1) = 5;
+    mat(1, 2) = 10;
+    mat(2, 1) = 15;
 
     mat.display_matrix();
     return 0;
