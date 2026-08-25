@@ -20,6 +20,25 @@ Matrix::Matrix(size_t r, size_t c, double initial_val)
 
     size_t Matrix::getrows() const { return rows; }
     size_t Matrix::getcols() const { return cols; }
+
+    Matrix Matrix::operator+(const Matrix& other)const {
+        assert (rows == other.rows && cols == other.cols);
+
+        Matrix result(rows, cols);
+        for (size_t n = 0; n < rows * cols; n++) {
+            result.matrix[n] = matrix[n] + other.matrix[n];
+        }
+        return result;
+    }
+
+    Matrix Matrix::operator-(const Matrix& other) const {
+        assert(rows == other.rows && cols == other.cols);
+        Matrix result(rows, cols); 
+            for (size_t n = 0; n < rows * cols; n++) {
+                result.matrix[n] = matrix[n] - other.matrix[n];
+        }
+        return result;
+    }
 // Function defination
 
 void Matrix::display_matrix()
@@ -30,4 +49,6 @@ void Matrix::display_matrix()
         }
         std::cout << "\n";
     }
+    std::cout << std::endl;
 }
+
