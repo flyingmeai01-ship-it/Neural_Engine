@@ -1,5 +1,5 @@
 // matrix.cpp include the matrix.hpp header file.
-#include "matrix.hpp"
+#include "../include/matrix.hpp"
 #include <iostream>
 #include <cassert>
 

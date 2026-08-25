@@ -14,18 +14,6 @@ Neural_Engine/
 ├── main.cpp
 └── README.md
 ```
-```
-hello/
-|--include/
-|   |---matirx.hpp
-|
-|
-|
-```
-
-
-
-
 
 ## Week 1 & 2
 - `Matrix` Operations
@@ -45,6 +33,8 @@ to `g++ -Wall -Wextra -Werror -std=c++17 src/matrix.cpp main.cpp -Iinclude -o ma
 - Practice more on Class and constructor.
 - Learn more about operator overloading.
 
+### Accomplished
+- Week 1, in 3 days.
 
 ### Acknowledgements
 - Developed By `Sachin singh pundir` *Flying*
