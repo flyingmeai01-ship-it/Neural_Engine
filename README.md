@@ -7,12 +7,15 @@
 ## Project Structure
 ```
 Neural_Engine/
-├── include/
+├── architechture.md
+├── include
 │   └── matrix.hpp
-├── src/
-│   └── matrix.cpp
 ├── main.cpp
-└── README.md
+├── README.md
+├── src
+│   └── matrix.cpp
+└── test.cpp
+
 ```
 
 ## Week 1 & 2
