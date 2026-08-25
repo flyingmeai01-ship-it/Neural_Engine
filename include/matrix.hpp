@@ -19,6 +19,8 @@ public:
     const double &operator()(size_t r, size_t c)const;
     size_t getrows()const;
     size_t getcols()const;
+    Matrix operator+(const Matrix& other) const;
+    Matrix operator-(const Matrix& other) const;
     void display_matrix();
 };
 
