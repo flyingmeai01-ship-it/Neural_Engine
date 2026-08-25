@@ -15,14 +15,21 @@ private:
 
 public:
     Matrix ( size_t r, size_t c, double initial_val = 0.0);
+
     double& operator()(size_t r, size_t c);
     const double &operator()(size_t r, size_t c)const;
+
     size_t getrows()const;
     size_t getcols()const;
+
     Matrix operator+( const Matrix& other ) const;
     Matrix operator-( const Matrix& other ) const;
+
     Matrix operator*( double scalar ) const;
     Matrix& operator*=(double scalar);
+
+    Matrix transpose() const;
+
     void display_matrix();
 };
 

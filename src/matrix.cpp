@@ -25,7 +25,7 @@ Matrix::Matrix(size_t r, size_t c, double initial_val)
         assert (rows == other.rows && cols == other.cols);
 
         Matrix result(rows, cols);
-        for (size_t n = 0; n < rows * cols; n++) {
+        for (size_t n = 0; n < rows * cols; ++n) {
             result.matrix[n] = matrix[n] + other.matrix[n];
         }
         return result;
@@ -34,7 +34,7 @@ Matrix::Matrix(size_t r, size_t c, double initial_val)
     Matrix Matrix::operator-(const Matrix& other) const {
         assert(rows == other.rows && cols == other.cols);
         Matrix result(rows, cols); 
-            for (size_t n = 0; n < rows * cols; n++) {
+            for (size_t n = 0; n < rows * cols; ++n) {
                 result.matrix[n] = matrix[n] - other.matrix[n];
         }
         return result;
@@ -43,7 +43,7 @@ Matrix::Matrix(size_t r, size_t c, double initial_val)
     Matrix Matrix::operator*(double scalar) const {
 
         Matrix result(rows, cols);
-        for (size_t n = 0; n < rows * cols; n++) {
+        for (size_t n = 0; n < rows * cols; ++n) {
             result.matrix[n] = matrix[n] * scalar;
         }
         return result;
@@ -51,18 +51,29 @@ Matrix::Matrix(size_t r, size_t c, double initial_val)
     Matrix& Matrix::operator*=(double scalar) {
 
         // Matrix& result(rows, cols);
-        for (size_t n = 0; n < rows * cols; n++) {
+        for (size_t n = 0; n < rows * cols; ++n) {
             matrix[n] *= scalar;
         }
         return *this;
     }
     // Function defination
 
+    Matrix Matrix::transpose() const {
+        Matrix result(rows, cols);
+
+        for (size_t r = 0; r < rows; ++r) {
+            for (size_t c = 0; c < cols; ++c) {
+                result(c, r) = (*this)(r, c);
+            }
+        }
+        return result;
+    }
+
     void Matrix::display_matrix()
     {
-        for (size_t i = 0; i < rows; i++)
+        for (size_t i = 0; i < rows; ++i)
         {
-            for (size_t j = 0; j < cols; j++)
+            for (size_t j = 0; j < cols; ++j)
             {
                 std::cout << (*this)(i, j) << " ";
             }
