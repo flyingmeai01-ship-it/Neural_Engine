@@ -39,16 +39,35 @@ Matrix::Matrix(size_t r, size_t c, double initial_val)
         }
         return result;
     }
-// Function defination
 
-void Matrix::display_matrix()
-{
-    for (size_t i = 0; i < rows; i++) {
-        for (size_t j = 0; j < cols; j++) {
-            std::cout << (*this)(i, j) << " ";
+    Matrix Matrix::operator*(double scalar) const {
+
+        Matrix result(rows, cols);
+        for (size_t n = 0; n < rows * cols; n++) {
+            result.matrix[n] = matrix[n] * scalar;
         }
-        std::cout << "\n";
+        return result;
     }
-    std::cout << std::endl;
-}
+    Matrix& Matrix::operator*=(double scalar) {
+
+        // Matrix& result(rows, cols);
+        for (size_t n = 0; n < rows * cols; n++) {
+            matrix[n] *= scalar;
+        }
+        return *this;
+    }
+    // Function defination
+
+    void Matrix::display_matrix()
+    {
+        for (size_t i = 0; i < rows; i++)
+        {
+            for (size_t j = 0; j < cols; j++)
+            {
+                std::cout << (*this)(i, j) << " ";
+            }
+            std::cout << "\n";
+        }
+        std::cout << std::endl;
+    }
 
