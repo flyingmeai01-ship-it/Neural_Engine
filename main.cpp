@@ -3,12 +3,25 @@
 
 int main()
 {
-    Matrix mat(4, 3);
+    Matrix A(2, 2);
 
-    mat(0, 1) = 5;
-    mat(1, 2) = 10;
-    mat(2, 1) = 15;
+    A(0, 0) = 0;
+    A(0, 1) = 5;
+    A(1, 0) = 10;
+    A(1, 1) = 15;
 
-    mat.display_matrix();
+    Matrix B(2, 2);
+
+    B(0, 0) = 15;
+    B(0, 1) = 10;
+    B(1, 0) = 5;
+    B(1, 1) = 0;
+
+    A.display_matrix();
+    B.display_matrix();
+    Matrix C = A + B;
+    Matrix D = A - B;
+    C.display_matrix();
+    D.display_matrix();
     return 0;
 }
