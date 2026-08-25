@@ -19,9 +19,11 @@ int main()
 
     A.display_matrix();
     B.display_matrix();
-    Matrix C = A + B;
-    Matrix D = A - B;
+    // Matrix C = A * 2.0;
+    A*=2.0;
+    // Matrix D = A - B;
+    Matrix C(3, 3, 10.0);
     C.display_matrix();
-    D.display_matrix();
+    A.display_matrix();
     return 0;
 }
