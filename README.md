@@ -17,6 +17,7 @@ Neural_Engine/
 
 ## Week 1 & 2
 - `Matrix` Operations
+- Matrix Additions and subtraction Added successfully in project.
 - for future Neural network multiplication or operation which we will use in whole project.
 - Importance it is the most useful part for whole project cuz it will be work as ground base for whole project.
 
@@ -26,6 +27,7 @@ Neural_Engine/
 - Build instruction `g++ -std=c++17 -Iinclude src/matrix.cpp main.cpp -o main` 
 to `g++ -Wall -Wextra -Werror -std=c++17 src/matrix.cpp main.cpp -Iinclude -o main`
 - Using the assert for bound checks and operator used
+- Operator overloading `{'()', '+', '-' }`
 
 ### Learnings and lessons
 - Practice more on Class and constructor.
