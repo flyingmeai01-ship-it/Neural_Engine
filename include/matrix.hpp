@@ -19,8 +19,10 @@ public:
     const double &operator()(size_t r, size_t c)const;
     size_t getrows()const;
     size_t getcols()const;
-    Matrix operator+(const Matrix& other) const;
-    Matrix operator-(const Matrix& other) const;
+    Matrix operator+( const Matrix& other ) const;
+    Matrix operator-( const Matrix& other ) const;
+    Matrix operator*( double scalar ) const;
+    Matrix& operator*=(double scalar);
     void display_matrix();
 };
 
