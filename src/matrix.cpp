@@ -89,6 +89,17 @@ Matrix::Matrix(size_t r, size_t c, double initial_val)
         return result;
     }
 
+    Matrix Matrix::hadamard(const Matrix& other) const {
+        Matrix result(rows, cols);
+
+        assert(rows == other.rows && cols == other.cols && "Index outmatch!");
+
+        for (size_t n = 0; n < rows * cols; ++n) {
+            result.matrix[n] = matrix[n] * other.matrix[n];
+        }
+        return result;
+    }
+
     void Matrix::display_matrix()
     {
         for (size_t i = 0; i < rows; ++i)

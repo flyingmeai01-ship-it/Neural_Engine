@@ -23,6 +23,9 @@ int main()
         A.display_matrix();
         B.display_matrix();
         C.display_matrix();
+
+        Matrix D = A.hadamard(B);
+        D.display_matrix();
     }
 
     catch (const std::invalid_argument& e) {

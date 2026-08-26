@@ -33,6 +33,7 @@ public:
     Matrix operator*(const Matrix& other) const;
 
     Matrix hadamard(const Matrix& other) const;
+    
     void display_matrix();
 };
 
