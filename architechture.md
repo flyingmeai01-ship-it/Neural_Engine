@@ -1,6 +1,6 @@
 # Project Timeline **6 Week**
 
-- Created project as
+**Created project as**
 ```
 Neural_Engine/
 ├── include

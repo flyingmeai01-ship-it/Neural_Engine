@@ -1,5 +1,5 @@
-// If matrix_hpp is not defined, define it ( start of header )
-#pragma once
+// matrix_hpp define (start of header)
+#ifndef MATRIX_HPP
 
 // Define MATRIX_HPP to prevent multiple file inclusions
 #define MATRIX_HPP
@@ -37,4 +37,4 @@ public:
     void display_matrix() const;
 };
 
-
+#endif
