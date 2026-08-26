@@ -1,17 +1,4 @@
-<<<<<<< HEAD
-// matrix_hpp define (start of header)
-#ifndef MATRIX_HPP
-
-// Define MATRIX_HPP to prevent multiple file inclusions
-#define MATRIX_HPP
-=======
-// If matrix_hpp is not defined, define it ( start of header )
-<<<<<<< HEAD
-#pragma ../include/matrix.hpp
->>>>>>> fc6fba4 (bug fix)
-=======
 #pragma once
->>>>>>> 1c89046 (fixes bugs)
 
 #include <cassert>
 #include <vector>
@@ -45,5 +32,3 @@ public:
 
     void display_matrix() const;
 };
-
-#endif
