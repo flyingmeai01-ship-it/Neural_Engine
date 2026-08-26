@@ -61,7 +61,7 @@ Matrix::Matrix(size_t r, size_t c, double initial_val)
     // Function defination
 
     Matrix Matrix::transpose() const {
-        Matrix result(rows, cols);
+        Matrix result(cols, rows);
 
         for (size_t r = 0; r < rows; ++r) {
             for (size_t c = 0; c < cols; ++c) {
