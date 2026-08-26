@@ -21,7 +21,9 @@ int main()
         Matrix C = A * B;
         // C = A * B;
 
+        std::cout << "--- Matrix A ---" << std::endl;
         A.display_matrix();
+        std::cout << "--- Matrix B ---" << std::endl;
         B.display_matrix();
         std::cout << "--- Matrix Multiplication (A * B) ---" << std::endl;
         C.display_matrix();
