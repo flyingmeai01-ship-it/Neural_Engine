@@ -73,15 +73,11 @@ Matrix::Matrix(size_t r, size_t c, double initial_val)
 
     Matrix Matrix::operator*(const Matrix& other) const {
         if (cols != other.rows) {
-            throw std::invalid_argument("Matrix Multiplication dimensions mismatch: A.cols (" + std::to_string(cols) + ") must equal B.rows(" + std::to_string(other.rows) + ")");
+            throw std::invalid_argument("Matrix multiplication dimension mismatch: A.cols (" + std::to_string(cols) + ") must equal B.rows (" + std::to_string(other.rows) + ")");
         }
 
-        // =======================================
-        // Active logic: I-K-J loop reordering.
-        // =======================================
         Matrix result(rows, other.cols);
-        
-        for (size_t i = 0; i < rows; ++i) {             
+        for (size_t i = 0; i < rows; ++i) {
             for (size_t k = 0; k < cols; ++k) {
                 const double temp = (*this)(i, k);
                 for (size_t j = 0; j < other.cols; ++j) {
@@ -90,20 +86,6 @@ Matrix::Matrix(size_t r, size_t c, double initial_val)
             }
         }
 
-    // =========================================================================
-    // ALTERNATIVE LOGIC: Pre-Transposition Method (First this logic was used and it's my approach)
-    // =========================================================================
-    // Matrix B_T = other.transpose(); // Allocates O(N*P) heap memory
-    // for (size_t i = 0; i < rows; ++i) {
-    //     for (size_t j = 0; j < other.cols; ++j) {
-    //         double sum = 0.0;
-    //         for (size_t k = 0; k < cols; ++k) {
-    //             sum += (*this)(i, k) * B_T(j, k);
-    //         }
-    //         result(i, j) = sum;
-    //     }
-    // }
-
         return result;
     }
 
@@ -111,7 +93,7 @@ Matrix::Matrix(size_t r, size_t c, double initial_val)
         if (rows != other.rows || cols != other.cols) {
             throw std::invalid_argument(
                 "Hadamard product dimension mismatch: A(" +
-                std::to_string(rows) + "x" + std::to_string(cols) + 
+                std::to_string(rows) + "x" + std::to_string(cols) +
                 ") must match B(" +
                 std::to_string(other.rows) + "x" + std::to_string(other.cols) + ")"
             );
@@ -136,4 +118,3 @@ Matrix::Matrix(size_t r, size_t c, double initial_val)
         }
         std::cout << std::endl;
     }
-
