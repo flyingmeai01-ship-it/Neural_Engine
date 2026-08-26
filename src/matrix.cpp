@@ -91,7 +91,7 @@ Matrix::Matrix(size_t r, size_t c, double initial_val)
         }
 
     // =========================================================================
-    // ALTERNATIVE LOGIC: Pre-Transposition Method (First this logic was used and its my approach)
+    // ALTERNATIVE LOGIC: Pre-Transposition Method (First this logic was used and it's my approach)
     // =========================================================================
     // Matrix B_T = other.transpose(); // Allocates O(N*P) heap memory
     // for (size_t i = 0; i < rows; ++i) {
@@ -108,9 +108,15 @@ Matrix::Matrix(size_t r, size_t c, double initial_val)
     }
 
     Matrix Matrix::hadamard(const Matrix& other) const {
+        if (rows != other.rows || cols != other.cols) {
+            throw std::invalid_argument(
+                "Hadamard product dimension mismatch: A(" +
+                std::to_string(rows) + "x" + std::to_string(cols) + 
+                ") must match B(" +
+                std::to_string(other.rows) + "x" + std::to_string(other.cols) + ")"
+            );
+        }
         Matrix result(rows, cols);
-
-        assert(rows == other.rows && cols == other.cols && "Index outmatch!");
 
         for (size_t n = 0; n < rows * cols; ++n) {
             result.matrix[n] = matrix[n] * other.matrix[n];

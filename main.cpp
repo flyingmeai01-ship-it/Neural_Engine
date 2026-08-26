@@ -23,7 +23,13 @@ int main()
 
         A.display_matrix();
         B.display_matrix();
+        std::cout << "--- Matrix Multiplication (A * B) ---" << std::endl;
         C.display_matrix();
+
+        Matrix D = A.hadamard(B);
+
+        std::cout << "--- Matrix Multiplication Hadamard product(A * B) ---" << std::endl;
+        D.display_matrix();
     }
 
     catch (const std::invalid_argument &e)

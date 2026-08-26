@@ -6,8 +6,12 @@
 #define MATRIX_HPP
 =======
 // If matrix_hpp is not defined, define it ( start of header )
+<<<<<<< HEAD
 #pragma ../include/matrix.hpp
 >>>>>>> fc6fba4 (bug fix)
+=======
+#pragma once
+>>>>>>> 1c89046 (fixes bugs)
 
 #include <cassert>
 #include <vector>
