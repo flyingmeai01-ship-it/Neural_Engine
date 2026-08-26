@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 // matrix_hpp define (start of header)
 #ifndef MATRIX_HPP
 
 // Define MATRIX_HPP to prevent multiple file inclusions
 #define MATRIX_HPP
+=======
+// If matrix_hpp is not defined, define it ( start of header )
+#pragma ../include/matrix.hpp
+>>>>>>> fc6fba4 (bug fix)
 
 #include <cassert>
 #include <vector>

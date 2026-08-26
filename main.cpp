@@ -4,7 +4,8 @@
 
 int main()
 {
-    try {    
+    try
+    {
         Matrix A(2, 2);
         A(0, 0) = 2;
         A(0, 1) = 6;
@@ -18,17 +19,15 @@ int main()
         B(1, 1) = 3;
 
         Matrix C = A * B;
-    // C = A * B;
+        // C = A * B;
 
         A.display_matrix();
         B.display_matrix();
         C.display_matrix();
-
-        Matrix D = A.hadamard(B);
-        D.display_matrix();
     }
 
-    catch (const std::invalid_argument& e) {
+    catch (const std::invalid_argument &e)
+    {
         std::cerr << "Caught Error! " << e.what() << std::endl;
     }
 
