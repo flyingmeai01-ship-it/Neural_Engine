@@ -73,7 +73,7 @@ Matrix::Matrix(size_t r, size_t c, double initial_val)
 
     Matrix Matrix::operator*(const Matrix& other) const {
         if (cols != other.rows) {
-            throw std::invalid_argument("Matrix Multiplication dimensions mismatch! A.cols (" + std::to_string(cols) + ") must equal B.rows (" + std::to_string(other.rows) + ")");
+            throw std::invalid_argument("Matrix multiplication dimension mismatch: A.cols (" + std::to_string(cols) + ") must equal B.rows (" + std::to_string(other.rows) + ")");
         }
 
         Matrix result(rows, other.cols);
