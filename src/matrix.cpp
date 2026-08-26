@@ -77,7 +77,7 @@ Matrix::Matrix(size_t r, size_t c, double initial_val)
         }
 
         // =======================================
-        // Active logic I-K-J Loop reordring.
+        // Active logic: I-K-J loop reordering.
         // =======================================
         Matrix result(rows, other.cols);
         
