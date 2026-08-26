@@ -3,6 +3,7 @@
 #include <iostream>
 #include <cassert>
 #include <stdexcept>
+#include <string>
 
 
 // Constructor defination
@@ -72,11 +73,10 @@ Matrix::Matrix(size_t r, size_t c, double initial_val)
 
     Matrix Matrix::operator*(const Matrix& other) const {
         if (cols != other.rows) {
-            throw std::invalid_argument("Matrix Multiplication dimensions mismatch! A.cols (" + std::to_string(cols) + ") must equal B.rows(" + std::to_string(rows) + ")");
+            throw std::invalid_argument("Matrix multiplication dimension mismatch: A.cols (" + std::to_string(cols) + ") must equal B.rows (" + std::to_string(other.rows) + ")");
         }
 
-        Matrix result(rows, cols);
-        other.transpose();
+        Matrix result(rows, other.cols);
         for (size_t i = 0; i < rows; ++i) {
             for (size_t k = 0; k < cols; ++k) {
                 double temp = (*this)(i, k);
@@ -100,4 +100,3 @@ Matrix::Matrix(size_t r, size_t c, double initial_val)
         }
         std::cout << std::endl;
     }
-
