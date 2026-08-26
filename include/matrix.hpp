@@ -1,5 +1,5 @@
 // If matrix_hpp is not defined, define it ( start of header )
-#ifndef MATRIX_HPP
+#pragma once
 
 // Define MATRIX_HPP to prevent multiple file inclusions
 #define MATRIX_HPP
@@ -14,7 +14,7 @@ private:
     std::vector<double> matrix;
 
 public:
-    Matrix ( size_t r, size_t c, double initial_val = 0.0);
+    Matrix(size_t r, size_t c, double initial_val = 0.0);
 
     double& operator()(size_t r, size_t c);
     const double &operator()(size_t r, size_t c)const;
@@ -22,10 +22,10 @@ public:
     size_t getrows()const;
     size_t getcols()const;
 
-    Matrix operator+( const Matrix& other ) const;
-    Matrix operator-( const Matrix& other ) const;
+    Matrix operator+(const Matrix& other) const;
+    Matrix operator-(const Matrix& other) const;
 
-    Matrix operator*( double scalar ) const;
+    Matrix operator*(double scalar) const;
     Matrix& operator*=(double scalar);
 
     Matrix transpose() const;
@@ -33,8 +33,8 @@ public:
     Matrix operator*(const Matrix& other) const;
 
     Matrix hadamard(const Matrix& other) const;
-    
-    void display_matrix();
+
+    void display_matrix() const;
 };
 
-#endif
+

@@ -24,7 +24,7 @@ Matrix::Matrix(size_t r, size_t c, double initial_val)
     size_t Matrix::getcols() const { return cols; }
 
     Matrix Matrix::operator+(const Matrix& other)const {
-        assert (rows == other.rows && cols == other.cols);
+        assert(rows == other.rows && cols == other.cols);
 
         Matrix result(rows, cols);
         for (size_t n = 0; n < rows * cols; ++n) {
@@ -73,12 +73,15 @@ Matrix::Matrix(size_t r, size_t c, double initial_val)
 
     Matrix Matrix::operator*(const Matrix& other) const {
         if (cols != other.rows) {
-            throw std::invalid_argument("Matrix Multiplication dimensions mismatch: A.cols (" + std::to_string(cols) + ") must equal B.rows(" + std::to_string(rows) + ")");
+            throw std::invalid_argument("Matrix Multiplication dimensions mismatch: A.cols (" + std::to_string(cols) + ") must equal B.rows(" + std::to_string(other.rows) + ")");
         }
 
+        // =======================================
+        // Active logic I-K-J Loop reordring.
+        // =======================================
         Matrix result(rows, other.cols);
-        other.transpose();
-        for (size_t i = 0; i < rows; ++i) {
+        
+        for (size_t i = 0; i < rows; ++i) {             
             for (size_t k = 0; k < cols; ++k) {
                 const double temp = (*this)(i, k);
                 for (size_t j = 0; j < other.cols; ++j) {
@@ -86,6 +89,21 @@ Matrix::Matrix(size_t r, size_t c, double initial_val)
                 }
             }
         }
+
+    // =========================================================================
+    // ALTERNATIVE LOGIC: Pre-Transposition Method (First this logic was used and its my approach)
+    // =========================================================================
+    // Matrix B_T = other.transpose(); // Allocates O(N*P) heap memory
+    // for (size_t i = 0; i < rows; ++i) {
+    //     for (size_t j = 0; j < other.cols; ++j) {
+    //         double sum = 0.0;
+    //         for (size_t k = 0; k < cols; ++k) {
+    //             sum += (*this)(i, k) * B_T(j, k);
+    //         }
+    //         result(i, j) = sum;
+    //     }
+    // }
+
         return result;
     }
 
@@ -100,7 +118,7 @@ Matrix::Matrix(size_t r, size_t c, double initial_val)
         return result;
     }
 
-    void Matrix::display_matrix()
+    void Matrix::display_matrix() const
     {
         for (size_t i = 0; i < rows; ++i)
         {
