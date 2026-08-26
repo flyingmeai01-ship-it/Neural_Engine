@@ -1,4 +1,4 @@
-// If matrix_hpp is not defined, define it ( start of header )
+// matrix_hpp define (start of header)
 #ifndef MATRIX_HPP
 
 // Define MATRIX_HPP to prevent multiple file inclusions
