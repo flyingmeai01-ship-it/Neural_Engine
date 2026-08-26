@@ -24,7 +24,7 @@ Matrix::Matrix(size_t r, size_t c, double initial_val)
     size_t Matrix::getcols() const { return cols; }
 
     Matrix Matrix::operator+(const Matrix& other)const {
-        assert (rows == other.rows && cols == other.cols);
+        assert(rows == other.rows && cols == other.cols);
 
         Matrix result(rows, cols);
         for (size_t n = 0; n < rows * cols; ++n) {
@@ -61,7 +61,7 @@ Matrix::Matrix(size_t r, size_t c, double initial_val)
     // Function defination
 
     Matrix Matrix::transpose() const {
-        Matrix result(rows, cols);
+        Matrix result(cols, rows);
 
         for (size_t r = 0; r < rows; ++r) {
             for (size_t c = 0; c < cols; ++c) {
@@ -79,16 +79,34 @@ Matrix::Matrix(size_t r, size_t c, double initial_val)
         Matrix result(rows, other.cols);
         for (size_t i = 0; i < rows; ++i) {
             for (size_t k = 0; k < cols; ++k) {
-                double temp = (*this)(i, k);
+                const double temp = (*this)(i, k);
                 for (size_t j = 0; j < other.cols; ++j) {
                     result(i, j) += temp * other(k, j);
                 }
             }
         }
+
         return result;
     }
 
-    void Matrix::display_matrix()
+    Matrix Matrix::hadamard(const Matrix& other) const {
+        if (rows != other.rows || cols != other.cols) {
+            throw std::invalid_argument(
+                "Hadamard product dimension mismatch: A(" +
+                std::to_string(rows) + "x" + std::to_string(cols) +
+                ") must match B(" +
+                std::to_string(other.rows) + "x" + std::to_string(other.cols) + ")"
+            );
+        }
+        Matrix result(rows, cols);
+
+        for (size_t n = 0; n < rows * cols; ++n) {
+            result.matrix[n] = matrix[n] * other.matrix[n];
+        }
+        return result;
+    }
+
+    void Matrix::display_matrix() const
     {
         for (size_t i = 0; i < rows; ++i)
         {
