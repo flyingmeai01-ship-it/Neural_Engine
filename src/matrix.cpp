@@ -87,8 +87,21 @@ Matrix::Matrix(size_t r, size_t c, double initial_val)
                 }
             }
         }
-
+        // =========================================================================
+        // ALTERNATIVE LOGIC: Pre-Transposition Method (Conceptual Reference)
+        // =========================================================================
+        // Matrix B_T = other.transpose(); // Allocates O(N*P) heap memory
+        // for (size_t i = 0; i < rows; ++i) {
+        //     for (size_t j = 0; j < other.cols; ++j) {
+        //         double sum = 0.0;
+        //         for (size_t k = 0; k < cols; ++k) {
+        //             sum += (*this)(i, k) * B_T(j, k);
+        //         }
+        //         result(i, j) = sum;
+        //     }
+        // }
         return result;
+
     }
 
     Matrix Matrix::hadamard(const Matrix& other) const {
