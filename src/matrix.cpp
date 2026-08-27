@@ -88,7 +88,7 @@ Matrix::Matrix(size_t r, size_t c, double initial_val)
             }
         }
         // =========================================================================
-        // ALTERNATIVE LOGIC: Pre-Transposition Method (Conceptual Reference)
+        // ALTERNATIVE LOGIC: Pre-Transposition Method (Previously used logic)
         // =========================================================================
         // Matrix B_T = other.transpose(); // Allocates O(N*P) heap memory
         // for (size_t i = 0; i < rows; ++i) {
