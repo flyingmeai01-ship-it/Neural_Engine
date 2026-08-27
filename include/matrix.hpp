@@ -13,7 +13,7 @@ public:
     Matrix(size_t r, size_t c, double initial_val = 0.0);
 
     double& operator()(size_t r, size_t c);
-    const double &operator()(size_t r, size_t c)const;
+    const double& operator()(size_t r, size_t c)const;
 
     size_t getrows()const;
     size_t getcols()const;
