@@ -1,6 +1,8 @@
 // matrix.cpp include the matrix.hpp header file.
 #include "../include/matrix.hpp"
 #include <iostream>
+#include <algorithm>
+#include <cmath>
 #include <cassert>
 #include <stdexcept>
 #include <string>
@@ -87,8 +89,21 @@ Matrix::Matrix(size_t r, size_t c, double initial_val)
                 }
             }
         }
-
+        // =========================================================================
+        // Pre-Transposition Method (Previously used logic)
+        // =========================================================================
+        // Matrix B_T = other.transpose(); // Allocates O(N*P) heap memory
+        // for (size_t i = 0; i < rows; ++i) {
+        //     for (size_t j = 0; j < other.cols; ++j) {
+        //         double sum = 0.0;
+        //         for (size_t k = 0; k < cols; ++k) {
+        //             sum += (*this)(i, k) * B_T(j, k);
+        //         }
+        //         result(i, j) = sum;
+        //     }
+        // }
         return result;
+
     }
 
     Matrix Matrix::hadamard(const Matrix& other) const {
@@ -108,6 +123,15 @@ Matrix::Matrix(size_t r, size_t c, double initial_val)
         return result;
     }
 
+    Matrix Matrix::map(std::function<double(double)> func) const{
+        Matrix result(rows, cols);
+
+        for (size_t n = 0; n < rows * cols; ++n) {
+            result.matrix[n] = func(this->matrix[n]);
+        }
+        return result;
+    }
+
     void Matrix::display_matrix() const
     {
         for (size_t i = 0; i < rows; ++i)
@@ -119,4 +143,27 @@ Matrix::Matrix(size_t r, size_t c, double initial_val)
             std::cout << "\n";
         }
         std::cout << std::endl;
+    }
+
+    double Activations::Sigmoid::forward(double x) {
+        double s = 1.0/(1.0 + std::exp(-x));
+        return s;
+    }
+    double Activations::Sigmoid::backward(double x) {
+        double s = forward(x);
+        return s * (1 - s);
+    }
+    double Activations::ReLU::forward(double x) {
+        return std::max(0.0, x);
+    }
+    double Activations::ReLU::backward(double x) {
+        return x > 0.0 ? 1.0 : 0.0;
+    }
+    double Activations::tanh::forward(double x) {
+        return (std::exp(x) - std::exp(-x))/(std::exp(x) + std::exp(-x));
+    }
+    double Activations::tanh::backward(double x) {
+        double t = forward(x);
+        return (1.0 - t * t);
+        
     }
