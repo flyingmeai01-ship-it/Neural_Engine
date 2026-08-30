@@ -1,6 +1,7 @@
 // matrix.cpp include the matrix.hpp header file.
 #include "../include/matrix.hpp"
 #include <iostream>
+#include <cmath>
 #include <cassert>
 #include <stdexcept>
 #include <string>
@@ -88,7 +89,7 @@ Matrix::Matrix(size_t r, size_t c, double initial_val)
             }
         }
         // =========================================================================
-        // ALTERNATIVE LOGIC: Pre-Transposition Method (Previously used logic)
+        // Pre-Transposition Method (Previously used logic)
         // =========================================================================
         // Matrix B_T = other.transpose(); // Allocates O(N*P) heap memory
         // for (size_t i = 0; i < rows; ++i) {
@@ -121,6 +122,15 @@ Matrix::Matrix(size_t r, size_t c, double initial_val)
         return result;
     }
 
+    Matrix Matrix::map(std::function<double(double)> func) const{
+        Matrix result(rows, cols);
+
+        for (size_t n = 0; n < rows * cols; ++n) {
+            result.matrix[n] = func(this->matrix[n]);
+        }
+        return result;
+    }
+
     void Matrix::display_matrix() const
     {
         for (size_t i = 0; i < rows; ++i)
@@ -132,4 +142,13 @@ Matrix::Matrix(size_t r, size_t c, double initial_val)
             std::cout << "\n";
         }
         std::cout << std::endl;
+    }
+
+    double Activations::Sigmoid::forward(double x) {
+        double s = 1.0/(1.0 + std::exp(-x));
+        return s;
+    }
+    double Activations::Sigmoid::backward(double x) {
+        double s = forward(x);
+        return s * (1 - s);
     }
