@@ -47,5 +47,8 @@ namespace Activations {
         double forward(double x);
         double backward(double x);
     }
-    
+    namespace tanh {
+        double forward(double x);
+        double backward(double x);
+    }
 }

@@ -20,5 +20,19 @@ int main()
     std::cout << "\nSigmoid backward Pass: ";
     gradients.display_matrix();
 
+    activated = A.map(Activations::ReLU::forward);
+    std::cout << "\nReLu Forward Pass: ";
+    activated.display_matrix();
+    gradients = A.map(Activations::ReLU::backward);
+    std::cout << "\nReLU backward Pass: ";
+    gradients.display_matrix();
+
+    activated= A.map(Activations::tanh::forward);
+    std::cout << "\nTanh Forward Pass: ";
+    activated.display_matrix();
+    gradients = A.map(Activations::tanh::backward);
+    std::cout << "\nTanh backward Pass: ";
+    gradients.display_matrix();
+
     return 0;
 }
