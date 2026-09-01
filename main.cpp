@@ -1,4 +1,5 @@
 #include "include/matrix.hpp"
+#include "include/activations.hpp"
 #include <stdexcept>
 #include <iostream>
 

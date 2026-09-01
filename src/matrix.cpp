@@ -1,8 +1,6 @@
 // matrix.cpp include the matrix.hpp header file.
 #include "../include/matrix.hpp"
 #include <iostream>
-#include <algorithm>
-#include <cmath>
 #include <cassert>
 #include <stdexcept>
 #include <string>
@@ -143,27 +141,4 @@ Matrix::Matrix(size_t r, size_t c, double initial_val)
             std::cout << "\n";
         }
         std::cout << std::endl;
-    }
-
-    double Activations::Sigmoid::forward(double x) {
-        double s = 1.0/(1.0 + std::exp(-x));
-        return s;
-    }
-    double Activations::Sigmoid::backward(double x) {
-        double s = forward(x);
-        return s * (1 - s);
-    }
-    double Activations::ReLU::forward(double x) {
-        return std::max(0.0, x);
-    }
-    double Activations::ReLU::backward(double x) {
-        return x > 0.0 ? 1.0 : 0.0;
-    }
-    double Activations::tanh::forward(double x) {
-        return (std::exp(x) - std::exp(-x))/(std::exp(x) + std::exp(-x));
-    }
-    double Activations::tanh::backward(double x) {
-        double t = forward(x);
-        return (1.0 - t * t);
-        
     }
